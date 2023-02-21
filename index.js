@@ -96,4 +96,134 @@ function operate() {
     }
 };
 
-//switch statement 
+// Step 3 - All HTML...
+
+//Step 4 
+
+//Display Value 
+let displayText = document.getElementById('display');
+let displayValue = 2843;
+displayText.innerText = displayValue;
+
+//DOM function to change the innerText of the Display div
+
+//Clear
+let clearBtn = document.getElementById('clear');
+
+clearBtn.addEventListener("click", clear);
+
+function clear() {
+    displayValue = 0;
+    displayText.innerText = displayValue;
+}
+
+// -/+
+let negaPosaBtn = document.getElementById('negaPosa');
+
+negaPosaBtn.addEventListener("click", negaPosa);
+
+function negaPosa() {
+    displayValue = displayValue * -1;
+    displayText.innerText = displayValue;
+}
+
+//one
+let oneBtn = document.getElementById('one');
+
+oneBtn.addEventListener("click", oneClick);
+
+function oneClick() {
+    displayValue = (displayValue + "1") * 1;
+    displayText.innerText = displayValue;
+};
+
+
+//two
+let twoBtn = document.getElementById('two');
+
+twoBtn.addEventListener("click", twoClick);
+
+function twoClick() {
+    displayValue = (displayValue + "2") * 1;
+    displayText.innerText = displayValue;
+};
+
+//three
+let threeBtn = document.getElementById('three');
+
+threeBtn.addEventListener("click", threeClick);
+
+function threeClick() {
+    displayValue = (displayValue + "3") * 1;
+    displayText.innerText = displayValue;
+};
+
+//four
+let fourBtn = document.getElementById('four');
+
+fourBtn.addEventListener("click", fourClick);
+
+function fourClick() {
+    displayValue = (displayValue + "4") * 1;
+    displayText.innerText = displayValue;
+};
+
+//five
+let fiveBtn = document.getElementById('five');
+
+fiveBtn.addEventListener("click", fiveClick);
+
+function fiveClick() {
+    displayValue = (displayValue + "5") * 1;
+    displayText.innerText = displayValue;
+};
+
+//six
+let sixBtn = document.getElementById('six');
+
+sixBtn.addEventListener("click", sixClick);
+
+function sixClick() {
+    displayValue = (displayValue + "6") * 1;
+    displayText.innerText = displayValue;
+};
+
+//seven
+let sevenBtn = document.getElementById('seven');
+
+sevenBtn.addEventListener("click", sevenClick);
+
+function sevenClick() {
+    displayValue = (displayValue + "7") * 1;
+    displayText.innerText = displayValue;
+};
+
+//eight
+let eightBtn = document.getElementById('eight');
+
+eightBtn.addEventListener("click", eightClick);
+
+function eightClick() {
+    displayValue = (displayValue + "8") * 1;
+    displayText.innerText = displayValue;
+};
+
+//nine
+let nineBtn = document.getElementById('nine');
+
+nineBtn.addEventListener("click", nineClick);
+
+function nineClick() {
+    displayValue = (displayValue + "9") * 1;
+    displayText.innerText = displayValue;
+};
+
+//zero
+let zeroBtn = document.getElementById('zero');
+
+zeroBtn.addEventListener("click", zeroClick);
+
+function zeroClick() {
+    displayValue = (displayValue + "0") * 1;
+    displayText.innerText = displayValue;
+};

@@ -30,11 +30,15 @@
     text-align: center;
 }
 
-.veiwingWindow {
+.displayBox {
+    display: flex;
     border: black solid 1px;
     border-radius: 5px;
     width: 308px;
     height: 75px;
-    text-align: center;
-
+    align-items: center;
+    justify-content: flex-end;
+    
 }
+
+.display {padding: 20px;}
