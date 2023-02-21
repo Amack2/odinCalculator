@@ -30,8 +30,8 @@
 // divide
 
 
-firstInput = 8;
-secondInput = 12;
+firstInput = "notSet";
+secondInput = "notSet";
 output = 0;
 
 selectedOperator = "none";
@@ -41,8 +41,10 @@ selectedOperator = "none";
 //addition 
 function add() {
     output = firstInput + secondInput;
+    //this following line may be now be redundant 
     firstInput = output;
-    // need some function to removethesecond input value secondInput = 0;
+    displayValue = output;
+    displayText.innerText = displayValue;
     return output;
 }
 
@@ -50,7 +52,10 @@ function add() {
 // subtraction
 function sub() {
     output = firstInput - secondInput;
+    //this following line may be now be redundant 
     firstInput = output;
+    displayValue = output;
+    displayText.innerText = displayValue;
     return output;
 }
 
@@ -58,7 +63,10 @@ function sub() {
 // multiply
 function multi() {
     output = firstInput * secondInput;
+    //this following line may be now be redundant 
     firstInput = output;
+    displayValue = output;
+    displayText.innerText = displayValue;
     return output;
 }
 
@@ -66,7 +74,10 @@ function multi() {
 // divide
 function divi() {
     output = firstInput / secondInput;
+    //this following line may be now be redundant 
     firstInput = output;
+    displayValue = output;
+    displayText.innerText = displayValue;
     return output;
 }
 
@@ -84,7 +95,7 @@ function operate() {
             sub();
             return output;
             break;
-        case "multi":
+        case "multiply":
             multi();
             return output;
             break;
@@ -94,6 +105,8 @@ function operate() {
             break;
 
     }
+
+
 };
 
 // Step 3 - All HTML...
@@ -102,7 +115,8 @@ function operate() {
 
 //Display Value 
 let displayText = document.getElementById('display');
-let displayValue = 2843;
+let displayValue = 0;
+let displayValue2 = 0;
 displayText.innerText = displayValue;
 
 //DOM function to change the innerText of the Display div
@@ -113,8 +127,12 @@ let clearBtn = document.getElementById('clear');
 clearBtn.addEventListener("click", clear);
 
 function clear() {
+    firstInput = "notSet";
+    secondInput = "notSet";
     displayValue = 0;
+    displayValue2 = 0;
     displayText.innerText = displayValue;
+
 }
 
 // -/+
@@ -123,9 +141,16 @@ let negaPosaBtn = document.getElementById('negaPosa');
 negaPosaBtn.addEventListener("click", negaPosa);
 
 function negaPosa() {
-    displayValue = displayValue * -1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = displayValue2 * -1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = displayValue * -1;
+        displayText.innerText = displayValue;
+    }
 }
+
+
 
 //one
 let oneBtn = document.getElementById('one');
@@ -133,8 +158,14 @@ let oneBtn = document.getElementById('one');
 oneBtn.addEventListener("click", oneClick);
 
 function oneClick() {
-    displayValue = (displayValue + "1") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
 };
 
 
@@ -144,8 +175,14 @@ let twoBtn = document.getElementById('two');
 twoBtn.addEventListener("click", twoClick);
 
 function twoClick() {
-    displayValue = (displayValue + "2") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
 };
 
 //three
@@ -154,8 +191,14 @@ let threeBtn = document.getElementById('three');
 threeBtn.addEventListener("click", threeClick);
 
 function threeClick() {
-    displayValue = (displayValue + "3") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
 };
 
 //four
@@ -164,28 +207,44 @@ let fourBtn = document.getElementById('four');
 fourBtn.addEventListener("click", fourClick);
 
 function fourClick() {
-    displayValue = (displayValue + "4") * 1;
-    displayText.innerText = displayValue;
-};
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
 
+    }
+}
 //five
 let fiveBtn = document.getElementById('five');
 
 fiveBtn.addEventListener("click", fiveClick);
 
 function fiveClick() {
-    displayValue = (displayValue + "5") * 1;
-    displayText.innerText = displayValue;
-};
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
 
+    }
+}
 //six
 let sixBtn = document.getElementById('six');
 
 sixBtn.addEventListener("click", sixClick);
 
 function sixClick() {
-    displayValue = (displayValue + "6") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
 };
 
 //seven
@@ -194,8 +253,14 @@ let sevenBtn = document.getElementById('seven');
 sevenBtn.addEventListener("click", sevenClick);
 
 function sevenClick() {
-    displayValue = (displayValue + "7") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
 };
 
 //eight
@@ -204,8 +269,14 @@ let eightBtn = document.getElementById('eight');
 eightBtn.addEventListener("click", eightClick);
 
 function eightClick() {
-    displayValue = (displayValue + "8") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
 };
 
 //nine
@@ -214,16 +285,114 @@ let nineBtn = document.getElementById('nine');
 nineBtn.addEventListener("click", nineClick);
 
 function nineClick() {
-    displayValue = (displayValue + "9") * 1;
-    displayText.innerText = displayValue;
-};
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
 
+    }
+};
 //zero
 let zeroBtn = document.getElementById('zero');
 
 zeroBtn.addEventListener("click", zeroClick);
 
 function zeroClick() {
-    displayValue = (displayValue + "0") * 1;
-    displayText.innerText = displayValue;
+    if (firstInput !== "notSet") {
+        displayValue2 = (displayValue2 + this.innerText) * 1;
+        displayText.innerText = displayValue2;
+    } else {
+        displayValue = (displayValue + this.innerText) * 1;
+        displayText.innerText = displayValue;
+
+    }
+};
+// decimal 
+let dotBtn = document.getElementById('dot');
+
+dotBtn.addEventListener("click", dotClick);
+
+function dotClick() {
+    if (firstInput !== "notSet") {
+        if (Number.isInteger(displayValue2)) {
+            displayValue2 = (displayValue2 + this.innerText);
+            displayText.innerText = displayValue2;
+        }
+    } else {
+        if (Number.isInteger(displayValue))
+            displayValue = (displayValue + this.innerText);
+        displayText.innerText = displayValue;
+
+    }
+};
+
+//OPERATOR BUTTONS
+
+// these do a few things,
+// 1. They save the current display value as first input
+// 2. They set the selected operator to what ever its supposed to be add sets it as add.
+// 3. It primes the buttons to accept the next input values as the second input. 
+//Calculators are weird we need to come up with a way that after you click on of these 
+// buttons it will still display the current DisplayValue until you start typing in a new number.  
+// some form of statement saying that if firstInput ==! notset then 
+
+//Add button: this works
+let addBtn = document.getElementById('add');
+
+addBtn.addEventListener("click", addClick);
+
+function addClick() {
+    firstInput = displayValue;
+    selectedOperator = "add";
+};
+
+//minus button
+let minusBtn = document.getElementById('minus');
+
+minusBtn.addEventListener("click", minusClick);
+
+function minusClick() {
+    firstInput = displayValue;
+    selectedOperator = "subtract";
+};
+
+//divide button 
+let divideBtn = document.getElementById('divide');
+
+divideBtn.addEventListener("click", divideClick);
+
+function divideClick() {
+    firstInput = displayValue;
+    selectedOperator = "divide";
+};
+
+//multiply button
+
+let multiplyBtn = document.getElementById('multiply');
+
+multiplyBtn.addEventListener("click", multiplyClick);
+
+function multiplyClick() {
+    firstInput = displayValue;
+    selectedOperator = "multiply";
+};
+
+//equal sign button 
+//this will run operate, it will also let what ever is in the displayValue become the secondInput
+
+let equalsBtn = document.getElementById('equals');
+
+equalsBtn.addEventListener("click", equalsClick);
+
+function equalsClick() {
+    secondInput = displayValue2;
+    operate();
+    //following line stops the calculator from repeating its last action when you hit the equal sign. most calculators actually repeat the last function when you hit equals. 
+    selectedOperator = "notset";
+    displayValue2 = "0";
+    secondInput = "notSet";
+    firstInput = "notSet";
+
 };
