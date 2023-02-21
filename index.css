@@ -1,0 +1,40 @@
+.calculatorFrame {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+    background-color: aquamarine;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+}
+
+
+.calcColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.calcBtn {
+    border: black solid 1px;
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.veiwingWindow {
+    border: black solid 1px;
+    border-radius: 5px;
+    width: 308px;
+    height: 75px;
+    text-align: center;
+
+}
