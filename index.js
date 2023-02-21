@@ -1,87 +1,50 @@
-
-
-
-// then create a way to input the two numbers. As well as the operators from the ui. pretty basic we just use a addeventlistener or something for the click. 
-// from the assignment:
-// Your calculator should not evaluate more than a single pair of numbers at a time. Example: you press a number button (12), followed by an operator button (+), a second number button (7), and finally a second operator button (-). Your calculator should then do the following: first, evaluate the first pair of numbers (12 + 7), second, display the result of that calculation (19), and finally, use that result (19) as the first number in your new calculation, along with the next operator (-).
-
-//... so we if we click "1" "+" "2" if we go to hit another operator (lets say *) the calculator will immediately calculate the 1+2 =3 and wait for the next number (3 * ?) to be inputted. so we will need to build into a the operator function that if an operator has already been called and you click on an operator again it will treat the second click the same as clicking "=" and also clicking the new operator. 
-
-//... Also note that for we really only need to worry about two numbers in our calculations at a time. theres no need to worry about bedmas or anything. Only one function is possible at a time. therefor 5+1x3 = (5+1)x3 not 5+ (1x3). so we really only need to worry about a A and a B number 
-
-// A is the first input 
-
-//B is the second input
-
-//C is output
-
-// A Operator B = C. 
-
-// if C exists it becomes A when the next function is called. 
-
-
-// then we will worry about js linking the operate function and the 2 numbers 
-
-// //need function for operators 
-
-// //addition 
-// //subtraction
-// multiply 
-// divide
-
-
 firstInput = "notSet";
 secondInput = "notSet";
 output = 0;
-
 selectedOperator = "none";
-//when you click an operator it will remember the operator and call it when u run the operate function.
 
-// STEP ONE: operator functions
+//re run  will prevent the user from typing additional numbers into the first input after the calculation has run. real calculators will let you select another operator to use with your output of your last equation and run a new calculation. But on a real calculator if you type a number after you get the result of your last calculation it wipes the display and starts a new equation.
+
+// so when you run the operate function it will set rerun to yes. if you click a number when re run is yes it will run Clear(), which sets rerun to no and then types your number, since after that rerun is no you can then continue to type numbers. BUT if you choose an operator when rerun is yes it will use the result of the last equation as the first input, and set rerun to no allowing you to type numbers in for your second input with out clearing the calc.
+
+reRunStatus = "no";
+
+
+//Display Value 
+let displayText = document.getElementById('display');
+let displayValue = 0;
+let displayValue2 = 0;
+displayText.innerText = displayValue;
+
+//Operator functions
 //addition 
 function add() {
     output = firstInput + secondInput;
-    //this following line may be now be redundant 
-    firstInput = output;
     displayValue = output;
     displayText.innerText = displayValue;
     return output;
 }
-
-
 // subtraction
 function sub() {
     output = firstInput - secondInput;
-    //this following line may be now be redundant 
-    firstInput = output;
     displayValue = output;
     displayText.innerText = displayValue;
     return output;
 }
-
-
 // multiply
 function multi() {
     output = firstInput * secondInput;
-    //this following line may be now be redundant 
-    firstInput = output;
     displayValue = output;
     displayText.innerText = displayValue;
     return output;
 }
-
-
 // divide
 function divi() {
     output = firstInput / secondInput;
-    //this following line may be now be redundant 
-    firstInput = output;
     displayValue = output;
     displayText.innerText = displayValue;
     return output;
 }
-
-
 //STEP TWO: Operate function 
 
 function operate() {
@@ -109,18 +72,6 @@ function operate() {
 
 };
 
-// Step 3 - All HTML...
-
-//Step 4 
-
-//Display Value 
-let displayText = document.getElementById('display');
-let displayValue = 0;
-let displayValue2 = 0;
-displayText.innerText = displayValue;
-
-//DOM function to change the innerText of the Display div
-
 //Clear
 let clearBtn = document.getElementById('clear');
 
@@ -129,6 +80,7 @@ clearBtn.addEventListener("click", clear);
 function clear() {
     firstInput = "notSet";
     secondInput = "notSet";
+    reRunStatus = "no";
     displayValue = 0;
     displayValue2 = 0;
     displayText.innerText = displayValue;
@@ -155,13 +107,26 @@ function negaPosa() {
 //one
 let oneBtn = document.getElementById('one');
 
-oneBtn.addEventListener("click", oneClick);
+function numberClick() {
+    console.log(this.innerText);
+};
 
+
+
+oneBtn.addEventListener("click", oneClick);
+// im now realizing theres probably a way to use a dom based on the the class element to have just one function for this instead of one per button.
 function oneClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -175,10 +140,17 @@ let twoBtn = document.getElementById('two');
 twoBtn.addEventListener("click", twoClick);
 
 function twoClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -191,10 +163,17 @@ let threeBtn = document.getElementById('three');
 threeBtn.addEventListener("click", threeClick);
 
 function threeClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -207,15 +186,22 @@ let fourBtn = document.getElementById('four');
 fourBtn.addEventListener("click", fourClick);
 
 function fourClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
     }
-}
+};
 //five
 let fiveBtn = document.getElementById('five');
 
@@ -237,10 +223,17 @@ let sixBtn = document.getElementById('six');
 sixBtn.addEventListener("click", sixClick);
 
 function sixClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -253,10 +246,17 @@ let sevenBtn = document.getElementById('seven');
 sevenBtn.addEventListener("click", sevenClick);
 
 function sevenClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -269,10 +269,17 @@ let eightBtn = document.getElementById('eight');
 eightBtn.addEventListener("click", eightClick);
 
 function eightClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -285,10 +292,17 @@ let nineBtn = document.getElementById('nine');
 nineBtn.addEventListener("click", nineClick);
 
 function nineClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -300,10 +314,17 @@ let zeroBtn = document.getElementById('zero');
 zeroBtn.addEventListener("click", zeroClick);
 
 function zeroClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            displayValue2 = (displayValue2 + this.innerText) * 1;
+            displayText.innerText = displayValue2;
+        } else {
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+
+        }
     } else {
+        clear();
         displayValue = (displayValue + this.innerText) * 1;
         displayText.innerText = displayValue;
 
@@ -315,17 +336,24 @@ let dotBtn = document.getElementById('dot');
 dotBtn.addEventListener("click", dotClick);
 
 function dotClick() {
-    if (firstInput !== "notSet") {
-        if (Number.isInteger(displayValue2)) {
-            displayValue2 = (displayValue2 + this.innerText);
-            displayText.innerText = displayValue2;
+    if (reRunStatus === "no") {
+        if (firstInput !== "notSet") {
+            if (Number.isInteger(displayValue2)) {
+                displayValue2 = (displayValue2 + this.innerText);
+                displayText.innerText = displayValue2;
+            }
+        } else {
+            if (Number.isInteger(displayValue))
+                displayValue = (displayValue + this.innerText);
+            displayText.innerText = displayValue;
+
         }
     } else {
-        if (Number.isInteger(displayValue))
-            displayValue = (displayValue + this.innerText);
+        clear();
+        displayValue = (displayValue + this.innerText);
         displayText.innerText = displayValue;
 
-    }
+     }
 };
 
 //OPERATOR BUTTONS
@@ -346,6 +374,7 @@ addBtn.addEventListener("click", addClick);
 function addClick() {
     firstInput = displayValue;
     selectedOperator = "add";
+    reRunStatus = "no";
 };
 
 //minus button
@@ -356,6 +385,7 @@ minusBtn.addEventListener("click", minusClick);
 function minusClick() {
     firstInput = displayValue;
     selectedOperator = "subtract";
+    reRunStatus = "no";
 };
 
 //divide button 
@@ -366,6 +396,7 @@ divideBtn.addEventListener("click", divideClick);
 function divideClick() {
     firstInput = displayValue;
     selectedOperator = "divide";
+    reRunStatus = "no";
 };
 
 //multiply button
@@ -377,6 +408,7 @@ multiplyBtn.addEventListener("click", multiplyClick);
 function multiplyClick() {
     firstInput = displayValue;
     selectedOperator = "multiply";
+    reRunStatus = "no";
 };
 
 //equal sign button 
@@ -390,9 +422,10 @@ function equalsClick() {
     secondInput = displayValue2;
     operate();
     //following line stops the calculator from repeating its last action when you hit the equal sign. most calculators actually repeat the last function when you hit equals. 
-    selectedOperator = "notset";
+    firstInput = displayValue;
+    selectedOperator = "notSet";
     displayValue2 = "0";
     secondInput = "notSet";
-    firstInput = "notSet";
+    reRunStatus = 'yes';
 
 };
