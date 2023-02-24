@@ -1,9 +1,10 @@
 .calculatorFrame {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: larger;
-    background-color: aquamarine;
-    height: 500px;
-    width: 500px;
+    background-color: #605f5e;
+    border-radius: 5px;
+    height: 475px;
+    width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +15,7 @@
     display: flex;
     flex-direction: row;
     font-size: x-large;
-}
+    }
 
 
 .calcColumn {
@@ -23,29 +24,44 @@
 }
 
 .calcBtn {
-    border: black solid 1px;
+    display: flex;
+    border: #605f5e solid 2px;
     width: 75px;
     height: 75px;
     border-radius: 5px;
-    text-align: center;
+    background-color: #140D4F;
+    justify-content: center;
+    align-items: center;
+    color: #9D8Df1;
+    
 }
 
 .numBtn {
-    border: black solid 1px;
+    display: flex;
+    border: #605f5e solid 2px;
     width: 75px;
     height: 75px;
     border-radius: 5px;
     text-align: center;
+    background-color: #e2e2e2;
+    justify-content: center;
+    align-items: center;
+}
+
+.calcBtnClicked{
+background-color: #FB3640;
 }
 
 .displayBox {
     display: flex;
-    border: black solid 1px;
+    border: black solid 2px;
     border-radius: 5px;
     width: 308px;
     height: 75px;
     align-items: center;
     justify-content: flex-end;
+    background-color: #605f5e;
+    font-size: x-large;
     
 }
 
