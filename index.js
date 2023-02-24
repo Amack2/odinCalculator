@@ -102,259 +102,276 @@ function negaPosa() {
     }
 }
 
+const
+numBtns = document.getElementsByClassName("numBtn");
+
+
+for (let i = 0; i < numBtns.length; i++) { 
+     numBtns[i].addEventListener("click", numberClick);}
+
+function numberClick() {
+            if (reRunStatus === "no") {
+            if (firstInput !== "notSet") {
+                displayValue2 = (displayValue2 + this.innerText) * 1;
+                displayText.innerText = displayValue2;
+            } else {
+                displayValue = (displayValue + this.innerText) * 1;
+                displayText.innerText = displayValue;
+    
+            }
+        } else {
+            clear();
+            displayValue = (displayValue + this.innerText) * 1;
+            displayText.innerText = displayValue;
+    
+        }
+    };
 
 
 //one
-let oneBtn = document.getElementById('one');
+// let oneBtn = document.getElementById('one');
+// oneBtn.addEventListener("click", oneClick);
+// // im now realizing theres probably a way to use a dom based on the the class element to have just one function for this instead of one per button.
+// function oneClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-function numberClick() {
-    console.log(this.innerText);
-};
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-
-
-oneBtn.addEventListener("click", oneClick);
-// im now realizing theres probably a way to use a dom based on the the class element to have just one function for this instead of one per button.
-function oneClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
-
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
-
-    }
-};
+//     }
+// };
 
 
-//two
-let twoBtn = document.getElementById('two');
+// //two
+// let twoBtn = document.getElementById('two');
 
-twoBtn.addEventListener("click", twoClick);
+// twoBtn.addEventListener("click", twoClick);
 
-function twoClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function twoClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
+//     }
+// };
 
-//three
-let threeBtn = document.getElementById('three');
+// //three
+// let threeBtn = document.getElementById('three');
 
-threeBtn.addEventListener("click", threeClick);
+// threeBtn.addEventListener("click", threeClick);
 
-function threeClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function threeClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
+//     }
+// };
 
-//four
-let fourBtn = document.getElementById('four');
+// //four
+// let fourBtn = document.getElementById('four');
 
-fourBtn.addEventListener("click", fourClick);
+// fourBtn.addEventListener("click", fourClick);
 
-function fourClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function fourClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
-//five
-let fiveBtn = document.getElementById('five');
+//     }
+// };
+// //five
+// let fiveBtn = document.getElementById('five');
 
-fiveBtn.addEventListener("click", fiveClick);
+// fiveBtn.addEventListener("click", fiveClick);
 
-function fiveClick() {
-    if (firstInput !== "notSet") {
-        displayValue2 = (displayValue2 + this.innerText) * 1;
-        displayText.innerText = displayValue2;
-    } else {
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+// function fiveClick() {
+//     if (firstInput !== "notSet") {
+//         displayValue2 = (displayValue2 + this.innerText) * 1;
+//         displayText.innerText = displayValue2;
+//     } else {
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-}
-//six
-let sixBtn = document.getElementById('six');
+//     }
+// }
+// //six
+// let sixBtn = document.getElementById('six');
 
-sixBtn.addEventListener("click", sixClick);
+// sixBtn.addEventListener("click", sixClick);
 
-function sixClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function sixClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
+//     }
+// };
 
-//seven
-let sevenBtn = document.getElementById('seven');
+// //seven
+// let sevenBtn = document.getElementById('seven');
 
-sevenBtn.addEventListener("click", sevenClick);
+// sevenBtn.addEventListener("click", sevenClick);
 
-function sevenClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function sevenClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
+//     }
+// };
 
-//eight
-let eightBtn = document.getElementById('eight');
+// //eight
+// let eightBtn = document.getElementById('eight');
 
-eightBtn.addEventListener("click", eightClick);
+// eightBtn.addEventListener("click", eightClick);
 
-function eightClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function eightClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
+//     }
+// };
 
-//nine
-let nineBtn = document.getElementById('nine');
+// //nine
+// let nineBtn = document.getElementById('nine');
 
-nineBtn.addEventListener("click", nineClick);
+// nineBtn.addEventListener("click", nineClick);
 
-function nineClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function nineClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
-//zero
-let zeroBtn = document.getElementById('zero');
+//     }
+// };
+// //zero
+// let zeroBtn = document.getElementById('zero');
 
-zeroBtn.addEventListener("click", zeroClick);
+// zeroBtn.addEventListener("click", zeroClick);
 
-function zeroClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            displayValue2 = (displayValue2 + this.innerText) * 1;
-            displayText.innerText = displayValue2;
-        } else {
-            displayValue = (displayValue + this.innerText) * 1;
-            displayText.innerText = displayValue;
+// function zeroClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             displayValue2 = (displayValue2 + this.innerText) * 1;
+//             displayText.innerText = displayValue2;
+//         } else {
+//             displayValue = (displayValue + this.innerText) * 1;
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText) * 1;
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText) * 1;
+//         displayText.innerText = displayValue;
 
-    }
-};
-// decimal 
-let dotBtn = document.getElementById('dot');
+//     }
+// };
+// // decimal 
+// let dotBtn = document.getElementById('dot');
 
-dotBtn.addEventListener("click", dotClick);
+// dotBtn.addEventListener("click", dotClick);
 
-function dotClick() {
-    if (reRunStatus === "no") {
-        if (firstInput !== "notSet") {
-            if (Number.isInteger(displayValue2)) {
-                displayValue2 = (displayValue2 + this.innerText);
-                displayText.innerText = displayValue2;
-            }
-        } else {
-            if (Number.isInteger(displayValue))
-                displayValue = (displayValue + this.innerText);
-            displayText.innerText = displayValue;
+// function dotClick() {
+//     if (reRunStatus === "no") {
+//         if (firstInput !== "notSet") {
+//             if (Number.isInteger(displayValue2)) {
+//                 displayValue2 = (displayValue2 + this.innerText);
+//                 displayText.innerText = displayValue2;
+//             }
+//         } else {
+//             if (Number.isInteger(displayValue))
+//                 displayValue = (displayValue + this.innerText);
+//             displayText.innerText = displayValue;
 
-        }
-    } else {
-        clear();
-        displayValue = (displayValue + this.innerText);
-        displayText.innerText = displayValue;
+//         }
+//     } else {
+//         clear();
+//         displayValue = (displayValue + this.innerText);
+//         displayText.innerText = displayValue;
 
-     }
-};
+//      }
+// };
 
 //OPERATOR BUTTONS
 

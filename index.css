@@ -30,6 +30,14 @@
     text-align: center;
 }
 
+.numBtn {
+    border: black solid 1px;
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .displayBox {
     display: flex;
     border: black solid 1px;
