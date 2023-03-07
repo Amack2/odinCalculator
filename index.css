@@ -18,6 +18,7 @@
     }
 
 
+
 .calcColumn {
     display: flex;
     flex-direction: column;
@@ -33,7 +34,10 @@
     justify-content: center;
     align-items: center;
     color: #9D8Df1;
-    
+    position: relative;
+}
+.calcBtn:active {
+    top: 1px;
 }
 
 .numBtn {
@@ -46,10 +50,11 @@
     background-color: #e2e2e2;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.calcBtnClicked{
-background-color: #FB3640;
+.numBtn:active {
+    top: 1px;
 }
 
 .displayBox {
